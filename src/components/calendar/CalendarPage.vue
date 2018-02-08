@@ -1,7 +1,7 @@
 <template>
   <content>
     <events-table />
-    <!-- <events-info /> -->
+    <events-info />
   </content>
 </template>
 
@@ -18,7 +18,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang='scss'>
-
-</style>

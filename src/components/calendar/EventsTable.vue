@@ -3,13 +3,13 @@
     <div class="filters">
       <event-type-filter @change="applyFilter" />
     </div>
-    <div class="box">
+    <content class="box">
       <table class="table is-striped is-fullwidth" :class="{'is-loading': isLoading}">
         <tbody>
           <event-row v-for="event in sortedList" :key="event.id" :event="event" :selected="event === nextUp" />
         </tbody>
       </table>
-    </div>
+    </content>
   </div>
 </template>
 
@@ -61,5 +61,8 @@ export default {
 @import "~bulma/sass/utilities/_all";
 .filters {
   margin: 2rem 0;
+}
+.calendar-view {
+  margin-bottom: 1.5rem;
 }
 </style>

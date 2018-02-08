@@ -34,9 +34,6 @@
   </div>
 </template>
 
-<script>
-</script>
-
 <style lang="scss" scoped>
 @import "~bulma/sass/utilities/_all";
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <content class="box">
     <p>Le Club Cycliste Cycle Pop propose à ses membres jusqu'à quatre sorties par semaines.</p>
 
     <table class='table'>
@@ -21,7 +21,7 @@
       </tr>
     </table>
     <p>Les sorties en soirée offrent des parcours de 40 à 85 km selon le groupe et la période de l'année. Les sorties du samedi sont un peu plus longues avec des distance variant entre 70 et 140 km. Toutes les sorties hebdomadaires quittent du Clubhouse. Deux points de regroupement seront affichés pour certaines sorties passant par la Rive Sud ou la Rive Nord.</p>
-  </div>
+  </content>
 </template>
 
 <style lang="scss" scoped>
