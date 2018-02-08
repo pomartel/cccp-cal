@@ -1,0 +1,44 @@
+@import "./bulma";
+
+html,
+body {
+  height: 100%;
+}
+
+#app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+}
+
+.main-content {
+  background: $light;
+}
+
+.footer {
+  padding: 1rem 0;
+  background: $dark;
+  color: $white-ter;
+}
+
+h1.title {
+  color: $primary;
+}
+
+.title {
+  font-family: "Cuprum";
+}
+
+.is-loading {
+  &:after {
+    @include loader;
+    display: block;
+    margin: 6rem auto;
+    width: 5rem;
+    height: 5rem;
+    border-width: 0.25rem;
+  }
+  > * {
+    display: none;
+  }
+}

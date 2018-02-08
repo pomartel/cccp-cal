@@ -1,0 +1,49 @@
+<template>
+  <tr :class="{ 'is-over': event.isOver(), 'is-selected': selected}">
+    <td class="is-hidden-mobile">{{typeEmoji}}</td>
+    <td>{{event.date | longDate }}</td>
+    <td class="is-hidden-mobile">{{event.date | dayOfWeek }}</td>
+    <td>{{event.time}}</td>
+    <td>
+      <router-link v-if="event.slug" :to="{ name: 'detailed-event',
+        params: { slug: event.slug }}" v-text="event.title" />
+      <a v-else-if="event.url" :href="event.url" v-text="event.title" />
+      <span v-else v-text="event.title"></span>
+
+    </td>
+    <td class="is-hidden-mobile has-text-right">
+      <span class='distance' v-if="event.defaultDistance">
+        {{event.defaultDistance}} km
+      </span>
+    </td>
+  </tr>
+</template>
+
+<script>
+import DateMixin from '@/mixins/DateMixin'
+export default {
+  mixins: [DateMixin],
+  props: {
+    event: {
+      required: true
+    },
+    selected: false
+  },
+  computed: {
+    typeEmoji () {
+      return window.CONFIG.eventTypes[this.event.type]['emoji']
+    }
+  },
+  mounted () {}
+}
+</script>
+
+<style lang="scss" scoped>
+@import "~bulma/sass/utilities/_all";
+.is-over {
+  opacity: 0.5;
+}
+.distance {
+  color: $grey-light;
+}
+</style>

@@ -1,0 +1,23 @@
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
+
+// 1152px container + 4rem
+$widescreen: $desktop;
+// 1344px container + 4rem
+$fullhd: $desktop;
+
+// Colors
+$primary: #b61d1d;
+
+// Images placeholder dimensions
+$dimensions: 16 24 32 48 64 80 96 128;
+
+// Typography
+$family-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto",
+  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  "Helvetica", "Arial", sans-serif !default;
+
+$table-row-active-background-color: lighten($primary, 25%);
+$table-row-active-color: $white-ter;
+
+@import "~bulma/bulma";
