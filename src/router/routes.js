@@ -6,7 +6,7 @@ import RidePage from '@/components/ride/RidePage'
 Vue.use(Router)
 
 export default new Router({
-  // mode: 'history',
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -18,5 +18,8 @@ export default new Router({
       name: 'detailed-event',
       component: RidePage
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
