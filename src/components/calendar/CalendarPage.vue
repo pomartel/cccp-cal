@@ -1,7 +1,7 @@
 <template>
   <content>
-    <events-table />
     <events-info />
+    <events-table />
   </content>
 </template>
 

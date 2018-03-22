@@ -15,7 +15,7 @@
 
     <ride-box :ride="ride" />
 
-    <route-box v-for="(route, index) in ride.routes" :key="route.name" :route="route" :routeNo="index + 1" />
+    <route-box v-for="(routeId, index) in ride.routesIds" :key="routeId" :routeId="routeId" :routeNo="index + 1" />
 
   </div>
 </template>

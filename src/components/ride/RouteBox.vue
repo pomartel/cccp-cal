@@ -1,5 +1,5 @@
 <template>
-  <content class="box" :class="{'is-loading ': isLoading}">
+  <content class="box">
     <h2 class="title is-3">
       Trajet {{routeNo}} - {{route.name}}
     </h2>
@@ -22,18 +22,18 @@
       </div>
     </div>
 
-    <div v-if="route.gpsId" class="gps-container">
-      <iframe :src='`https://rwgps-embeds.com/embeds?type=route&id=${route.gpsId}&sampleGraph=true`' style='width: 1px; min-width: 100%; height: 700px; border: none;' scrolling='no'></iframe>
+    <div v-if="routeId" class="gps-container">
+      <iframe :src='`https://rwgps-embeds.com/embeds?type=route&id=${routeId}&sampleGraph=true&metricUnits=true`' style='width: 1px; min-width: 100%; height: 700px; border: none;' scrolling='no'></iframe>
 
       <div class="field is-grouped is-grouped-multiline gps-links">
         <div class="control">
-          <a :href="`https://ridewithgps.com/routes/${route.gpsId}`" target="_blank">🗺 Page RwGPS</a>
+          <a :href="`https://ridewithgps.com/routes/${routeId}`" target="_blank">🗺 Page RwGPS</a>
         </div>
         <div class="control">
-          <a :href="`https://ridewithgps.com/routes/${route.gpsId}.gpx?sub_format=track`" target="_blank">📟 Fichier GPX</a>
+          <a :href="`https://ridewithgps.com/routes/${routeId}.gpx?sub_format=track`" target="_blank">📟 Fichier GPX</a>
         </div>
-        <div class="control">
-          <a :href="`https://ridewithgps.com/routes/${route.gpsId}/print`" target="_blank">🖨 Imprimer le trajet</a>
+        <div class="control" v-if="false">
+          <a :href="`https://ridewithgps.com/routes/${routeId}/print`" target="_blank">🖨 Imprimer le trajet</a>
         </div>
       </div>
     </div>
@@ -41,19 +41,35 @@
 </template>
 
 <script>
+import fetchJsonp from 'fetch-jsonp'
 import InfoTag from '../util/InfoTag'
+import Route from '@/core/Route'
 export default {
+  data () {
+    return {
+      route: []
+    }
+  },
   props: {
-    route: { required: true },
+    routeId: { required: true },
     routeNo: { required: true }
   },
   computed: {
-    isLoading () {
-      return !Object.keys(this.route).length
-    }
   },
   components: {
     InfoTag
+  },
+  created () {
+    const url = `https://ridewithgps.com/routes/${this.routeId}.json?apikey=338acd0e&version=2`
+    fetchJsonp(url)
+      .then(response => {
+        return response.json()
+      }).then(routeJson => {
+        console.debug(routeJson.route)
+        this.route = new Route(routeJson.route)
+      }).catch(error => {
+        console.log(error)
+      })
   }
 }
 </script>

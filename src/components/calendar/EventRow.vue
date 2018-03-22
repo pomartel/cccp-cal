@@ -12,15 +12,14 @@
 
     </td>
     <td class="is-hidden-mobile has-text-right">
-      <span class='distance' v-if="event.defaultDistance">
-        {{event.defaultDistance}} km
-      </span>
+      <add-to-calendar :event="event" />
     </td>
   </tr>
 </template>
 
 <script>
 import DateMixin from '@/mixins/DateMixin'
+import AddToCalendar from './AddToCalendar'
 export default {
   mixins: [DateMixin],
   props: {
@@ -34,7 +33,9 @@ export default {
       return window.CONFIG.eventTypes[this.event.type]['emoji']
     }
   },
-  mounted () {}
+  components: {
+    AddToCalendar
+  }
 }
 </script>
 

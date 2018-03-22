@@ -34,6 +34,10 @@ class Evnt {
     return this.attrs.carpoolUrl
   }
 
+  get notes () {
+    return this.attrs.notes
+  }
+
   get defaultDistance () {
     if (this.ride) {
       return this.ride.routes[0].distance
