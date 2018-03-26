@@ -60,7 +60,7 @@ export default {
     InfoTag
   },
   created () {
-    const url = `https://ridewithgps.com/routes/${this.routeId}.json?apikey=338acd0e&version=2`
+    const url = window.CONFIG.rideWithGpsUrl.replace('[routeId]', this.routeId)
     fetchJsonp(url)
       .then(response => {
         return response.json()

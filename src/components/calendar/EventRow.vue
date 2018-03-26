@@ -1,5 +1,5 @@
 <template>
-  <tr :class="{ 'is-over': event.isOver(), 'is-selected': selected}">
+  <tr :class="{ 'is-over': event.isOver(), 'selected': selected}">
     <td class="is-hidden-mobile">{{typeEmoji}}</td>
     <td>{{event.date | longDate }}</td>
     <td class="is-hidden-mobile">{{event.date | dayOfWeek }}</td>
@@ -42,7 +42,10 @@ export default {
 <style lang="scss" scoped>
 @import "~bulma/sass/utilities/_all";
 .is-over {
-  opacity: 0.5;
+  opacity: 0.4;
+}
+.selected {
+  font-weight: bold;
 }
 .distance {
   color: $grey-light;

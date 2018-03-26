@@ -11,7 +11,7 @@
       </span>
     </definition>
 
-    <definition name="Point de rassemblement" v-if="ride.nextEvent.meetingAddress">
+    <definition name="Point de rassemblement" v-if="ride.meetingAddress">
       <a :href="`https://www.google.ca/maps?q=${ride.meetingAddress}`" target="_blank">
         {{ride.meetingPlace}} - {{ride.meetingAddress}}
       </a>
