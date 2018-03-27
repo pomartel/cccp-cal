@@ -1,10 +1,12 @@
 <template>
   <tr :class="{ 'is-over': event.isOver(), 'selected': selected}">
-    <td class="is-hidden-mobile">{{typeEmoji}}</td>
-    <td>{{event.date | longDate }}</td>
+    <td class="is-hidden-mobile">
+      <span :title="event.typeLabel">{{typeEmoji}}</span>
+    </td>
     <td class="is-hidden-mobile">{{event.date | dayOfWeek }}</td>
+    <td>{{event.date | longDate }}</td>
     <td>{{event.time}}</td>
-    <td>
+    <td class='event-name'>
       <router-link v-if="event.slug" :to="{ name: 'detailed-event',
         params: { slug: event.slug }}" v-text="event.title" />
       <a v-else-if="event.url" :href="event.url" v-text="event.title" />
@@ -47,7 +49,7 @@ export default {
 .selected {
   font-weight: bold;
 }
-.distance {
-  color: $grey-light;
+.event-name {
+  width: 50%;
 }
 </style>

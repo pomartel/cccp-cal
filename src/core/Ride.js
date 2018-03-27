@@ -8,8 +8,12 @@ class Ride {
     this.events.push(evnt)
   }
 
+  get nextEvents () {
+    return this.events.filter(evnt => !evnt.isOver()) || []
+  }
+
   get nextEvent () {
-    return this.events.find(evnt => !evnt.isOver()) || {}
+    return this.nextEvents[0]
   }
 
   get routesIds () {

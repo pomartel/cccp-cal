@@ -14,6 +14,10 @@ class Evnt {
     return this.attrs.type
   }
 
+  get typeLabel () {
+    return window.CONFIG.eventTypes[this.type]['textSingular']
+  }
+
   get date () {
     return moment(this.attrs.date)
   }
@@ -34,8 +38,14 @@ class Evnt {
     return this.attrs.carpoolUrl
   }
 
+  get facebookEventUrl () {
+    return this.attrs.facebookEventUrl
+  }
+
   get notes () {
-    return this.attrs.notes
+    const formattedNotes = this.attrs.notes.replace(/(?:\r\n|\r|\n)/g, '<br />')
+    console.debug(formattedNotes)
+    return formattedNotes
   }
 
   get defaultDistance () {

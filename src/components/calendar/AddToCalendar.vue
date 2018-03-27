@@ -1,5 +1,5 @@
 <template>
-  <div title="Ajouter à mon calendrier" class="addeventatc" data-styling="none">
+  <div class="addeventatc" data-styling="none">
     <img src="@/assets/gfx/icon-calendar-t1.svg" alt="" style="width:18px;" />
     <span class="start">{{event.date | shortDate}} {{event.time | hourWithColon}}</span>
     <span class="timezone">America/Montreal</span>

@@ -41,6 +41,9 @@
   box-shadow: 0px 5px 20px 2px rgba(0, 0, 0, 0.25);
   z-index: 1; // or else the shadow won't display
 }
+.hero-body {
+  padding: 2rem 0;
+}
 .media {
   align-items: center;
 }

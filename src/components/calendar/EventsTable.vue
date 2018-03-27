@@ -1,26 +1,31 @@
 <template>
   <div class="calendar-view">
     <div class="filters">
-
       <select-filter @change="applyTimeFilter" :selected="timeFilter">
-        <option value="future">Sorties à venir</option>
-        <option value="all">Toutes les sorties</option>
+        <option value="future">Événements à venir</option>
+        <option value="all">Tous les événements</option>
       </select-filter>
 
       <select-filter @change="applyTypeFilter" :selected="typeFilter">
-        <option value="">Toutes les types</option>
+        <option value="">Tous les types</option>
         <option v-for="(eventType, key) in eventsTypeList" :key="key" :value="key">
-          {{eventType.emoji}} {{eventType.text}}
+          {{eventType.emoji}} {{eventType.textPlural}}
         </option>
       </select-filter>
-
     </div>
-    <content class="box">
-      <table class="table is-striped is-fullwidth" :class="{'is-loading': isLoading}">
-        <tbody>
-          <event-row v-for="event in sortedList" :key="event.id" :event="event" :selected="event === nextUp" />
-        </tbody>
-      </table>
+
+    <content :class="{'is-loading': isLoading}">
+      <div class="box" v-for="(events, month) in groupedByMonth" :key="month">
+        <div class="title-container">
+          <h2 class="title is-2">{{month}}</h2>
+          <div class="line" />
+        </div>
+        <table class=" table is-striped is-fullwidth ">
+          <tbody>
+            <event-row v-for="event in events" :key="event.id " :event="event " :selected="event===nextUp " />
+          </tbody>
+        </table>
+      </div>
     </content>
   </div>
 </template>
@@ -47,14 +52,23 @@ export default {
     })
   },
   computed: {
-    sortedList () {
+    filteredList () {
       return this.eventsList.slice(0)
         .sort((a, b) => a.date - b.date)
         .filter(evnt => !evnt.isOver() || this.timeFilter === 'all')
-        .filter(evnt => !this.typeFilter || evnt.type === this.typeFilter)
+        .filter(evnt => this.typeFilter === '' || evnt.type === this.typeFilter)
+    },
+    groupedByMonth () {
+      let monthGrouping = {}
+      this.filteredList.forEach(evnt => {
+        const month = evnt.date.format('MMMM')
+        monthGrouping[month] = monthGrouping[month] || []
+        monthGrouping[month].push(evnt)
+      })
+      return monthGrouping
     },
     nextUp () {
-      return this.sortedList.find(evnt => !evnt.isOver())
+      return this.filteredList.find(evnt => !evnt.isOver())
     }
   },
   components: {
@@ -63,9 +77,6 @@ export default {
   },
   methods: {
     applyTypeFilter (filter) {
-      if (filter === '') {
-        filter = null
-      }
       this.typeFilter = filter
     },
     applyTimeFilter (filter) {
@@ -76,11 +87,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~bulma/sass/utilities/_all";
+@import "../../assets/scss/bulma.scss";
+
 .filters {
   margin: 2rem 0;
 }
 .calendar-view {
   margin-bottom: 1.5rem;
+}
+.title-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  .title {
+    text-transform: capitalize;
+    font-weight: normal;
+    margin: 0;
+    padding-right: 0.8rem;
+  }
+  .line {
+    flex-grow: 2;
+    height: 2px;
+    background: linear-gradient(to right, red, white);
+  }
+}
+.table {
+  margin-bottom: 0;
+}
+hr {
+  z-index: -1;
+  // margin-bottom: -2.5rem;
+  height: 2px;
 }
 </style>

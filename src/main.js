@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/routes'
 import moment from 'moment'
+import tippy from 'tippy.js'
 
 require('@/assets/scss/main.scss')
 
@@ -12,19 +13,23 @@ window.CONFIG = {
   rideWithGpsUrl: `https://ridewithgps.com/routes/[routeId].json?apikey=338acd0e&version=2`,
   eventTypes: {
     'sortie-locale': {
-      text: 'Sorties locales',
+      textSingular: 'Sortie locale',
+      textPlural: 'Sorties locales',
       emoji: '🚲'
     },
     'sortie-regionale': {
-      text: 'Sorties régionales',
+      textSingular: 'Sortie régionale',
+      textPlural: 'Sorties régionales',
       emoji: '🚗'
     },
     'mensuelle': {
-      text: 'Sorties mensuelles',
+      textSingular: 'Sortie mensuelle',
+      textPlural: 'Sorties mensuelles',
       emoji: '🚌'
     },
     'evenement': {
-      text: 'Événements',
+      textSingular: 'Événement',
+      textPlural: 'Événements',
       emoji: '🏠'
     }
   }
@@ -40,6 +45,8 @@ new Vue({
   },
   template: '<App/>'
 })
+
+tippy('#app', { arrow: true, target: '[title]' })
 
 // Capitalize extension for strings
 String.prototype.capitalize = function () {

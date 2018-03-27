@@ -37,7 +37,6 @@ export default {
     DataStoreProxy.getDataStore().then(
       dataStore => {
         this.ride = dataStore.findRideBySlug(slug)
-        this.isLoading = false
         document.title = `${this.ride.name} - Club Cycliste Cycle Pop`
       }
     )
@@ -45,3 +44,9 @@ export default {
   methods: {}
 }
 </script>
+
+<style lang="scss" scoped>
+.breadcrumb {
+  margin-bottom: 0.5rem;
+}
+</style>

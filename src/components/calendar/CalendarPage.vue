@@ -1,17 +1,20 @@
 <template>
   <content>
-    <events-info />
+    <header-notes />
     <events-table />
+    <footer-notes />
   </content>
 </template>
 
 <script>
 import EventsTable from './EventsTable'
-import EventsInfo from './EventsInfo'
+import HeaderNotes from './HeaderNotes'
+import FooterNotes from './FooterNotes'
 export default {
   components: {
     EventsTable,
-    EventsInfo
+    HeaderNotes,
+    FooterNotes
   },
   created () {
     document.title = 'Calendrier des événements - Club Cycliste Cycle Pop'
