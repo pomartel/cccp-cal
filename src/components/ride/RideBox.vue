@@ -6,6 +6,7 @@
       <definition :name="ride.nextEvents.length > 1 ? 'Prochaines dates' : 'Prochaine date'">
         <div v-for="evnt in ride.nextEvents" :key="evnt.date.fomat">
           {{evnt.date | dayOfWeekAndDate}}
+          <mecano :event="evnt" />
         </div>
       </definition>
 
@@ -37,6 +38,7 @@
 <script>
 import DateMixin from '@/mixins/DateMixin'
 import Definition from '../util/Definition'
+import Mecano from '../util/Mecano'
 export default {
   data () {
     return {
@@ -47,7 +49,7 @@ export default {
       return !Object.keys(this.ride).length
     }
   },
-  components: { Definition },
+  components: { Definition, Mecano },
   mixins: [DateMixin],
   props: ['ride']
 }

@@ -11,7 +11,7 @@
         params: { slug: event.slug }}" v-text="event.title" />
       <a v-else-if="event.url" :href="event.url" v-text="event.title" />
       <span v-else v-text="event.title"></span>
-
+      <mecano :event="event" />
     </td>
     <td class="is-hidden-mobile has-text-right">
       <add-to-calendar :event="event" />
@@ -22,6 +22,7 @@
 <script>
 import DateMixin from '@/mixins/DateMixin'
 import AddToCalendar from './AddToCalendar'
+import Mecano from '../util/Mecano'
 export default {
   mixins: [DateMixin],
   props: {
@@ -36,7 +37,7 @@ export default {
     }
   },
   components: {
-    AddToCalendar
+    AddToCalendar, Mecano
   }
 }
 </script>

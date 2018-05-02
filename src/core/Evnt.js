@@ -26,6 +26,10 @@ class Evnt {
     return this.attrs.time
   }
 
+  get mecano () {
+    return this.attrs.mecano
+  }
+
   get slug () {
     return this.attrs.rideSlug
   }
