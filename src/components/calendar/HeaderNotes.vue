@@ -1,6 +1,6 @@
 <template>
   <content class="content box">
-    <p>Le Club Cycliste Cycle Pop propose à ses membres jusqu'à trois sorties par semaines.</p>
+    <p>Le CYCLEPOP propose à ses membres jusqu'à trois sorties par semaines.</p>
 
     <table class='table'>
       <tr>
@@ -15,7 +15,7 @@
     <p class="">Les sorties en soirée offrent des parcours de 40 à 85 km selon le groupe et la période de l'année. Les sorties du samedi sont un peu plus longues avec des distance variant entre 70 et 140 km. Toutes les sorties hebdomadaires quittent du Clubhouse. Deux points de regroupement seront affichés pour certaines sorties passant par la Rive Sud ou la Rive Nord.</p>
 
     <p>Consultez aussi le
-      <a href='http://club.cyclepop.ca/novices'>calendrier du Programme novice CCCP 2018</a>, préparation haute performance.</p>
+      <a href='http://club.cyclepop.ca/novices'>calendrier du Programme novice CYCLEPOP</a>, préparation haute performance.</p>
   </content>
 
 </template>

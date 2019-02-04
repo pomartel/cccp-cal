@@ -1,16 +1,16 @@
 <template>
   <div class="calendar-view">
     <div class="filters">
-      <select-filter @change="applyTimeFilter" :selected="timeFilter">
-        <option value="future">Événements à venir</option>
-        <option value="all">Tous les événements</option>
-      </select-filter>
-
       <select-filter @change="applyTypeFilter" :selected="typeFilter">
         <option value="">Tous les types</option>
         <option v-for="(eventType, key) in eventsTypeList" :key="key" :value="key">
           {{eventType.emoji}} {{eventType.textPlural}}
         </option>
+      </select-filter>
+
+      <select-filter @change="applyTimeFilter" :selected="timeFilter">
+        <option value="future">Événements à venir</option>
+        <option value="all">Tous les événements</option>
       </select-filter>
     </div>
 
@@ -90,7 +90,12 @@ export default {
 @import "../../assets/scss/bulma.scss";
 
 .filters {
-  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.filter {
+  margin-bottom: 1rem;
 }
 .calendar-view {
   margin-bottom: 1.5rem;
@@ -108,7 +113,7 @@ export default {
   .line {
     flex-grow: 2;
     height: 2px;
-    background: linear-gradient(to right, red, white);
+    background: linear-gradient(to right, $primary, white);
   }
 }
 .table {

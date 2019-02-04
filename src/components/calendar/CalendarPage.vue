@@ -1,6 +1,5 @@
 <template>
   <content>
-    <header-notes />
     <events-table />
     <footer-notes />
   </content>
@@ -17,7 +16,7 @@ export default {
     FooterNotes
   },
   created () {
-    document.title = 'Calendrier des événements - Club Cycliste Cycle Pop'
+    document.title = 'Calendrier des événements - CYCLEPOP'
   }
 }
 </script>

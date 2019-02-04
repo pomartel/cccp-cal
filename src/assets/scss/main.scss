@@ -17,7 +17,8 @@ body {
 }
 
 .footer {
-  padding: 1rem 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   background: $dark;
   color: $white-ter;
 }
@@ -27,7 +28,7 @@ body {
 }
 
 .title {
-  font-family: "Cuprum";
+  font-family: "Oswald";
 }
 
 .is-loading {

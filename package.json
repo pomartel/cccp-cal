@@ -1,6 +1,6 @@
 {
-  "name": "cccp-cal",
-  "description": "Calendrier des événements CCCP",
+  "name": "cyclepop-cal",
+  "description": "Calendrier des événements CYCLEPOP",
   "version": "1.0.0",
   "author": "Pierre Olivier Martel <pomartel@coderubik.com>",
   "license": "MIT",

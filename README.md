@@ -1,6 +1,6 @@
-# cccp-cal
+# cyclepop-cal
 
-> Calendrier des événements CCCP
+> Calendrier des événements CYCLEPOP
 
 [Site Web](http://calendrier.cyclepop.ca.s3-website.ca-central-1.amazonaws.com/#/) affichant le calendrier du Club et les sorties à venir.
 

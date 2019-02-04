@@ -7,14 +7,13 @@ $widescreen: $desktop;
 $fullhd: $desktop;
 
 // Colors
-$primary: #b61d1d;
+$primary: #ff5252;
 
 // Images placeholder dimensions
 $dimensions: 16 24 32 48 64 80 96 128;
 
 // Typography
-$family-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto",
-  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+$family-sans-serif: "Open Sans", "Helvetica Neue",
   "Helvetica", "Arial", sans-serif !default;
 
 $table-row-active-background-color: lighten($primary, 25%);

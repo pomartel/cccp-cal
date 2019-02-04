@@ -1,5 +1,5 @@
 <template>
-  <span class='mecano-icon' v-if="event.mecano" title="Atelier mobile ArsenoVélo sur place une heure avant le départ">🛠</span>
+  <span class='mecano-icon' v-if="event.mecano" title="Atelier mobile ArsenoVélo sur place une heure avant le départ">🔧</span>
 </template>
 
 <script>

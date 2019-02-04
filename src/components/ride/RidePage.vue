@@ -37,7 +37,7 @@ export default {
     DataStoreProxy.getDataStore().then(
       dataStore => {
         this.ride = dataStore.findRideBySlug(slug)
-        document.title = `${this.ride.name} - Club Cycliste Cycle Pop`
+        document.title = `${this.ride.name} - CYCLEPOP`
       }
     )
   },

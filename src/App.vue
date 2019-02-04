@@ -3,14 +3,14 @@
     <header class="hero is-primary has-shadow">
       <div class="container hero-body">
         <div class="media">
-          <figure class="media-left is-hidden-mobile">
+          <figure class="media-left is-hidden">
             <p class="image is-80x80">
-              <img src="./assets/images/logo-CCCP.svg" alt="Logo Club Cycliste Cycle Pop">
+              <img src="./assets/images/logo-CYCLEPOP.svg" alt="Logo CYCLEPOP">
             </p>
           </figure>
           <div class="media-cotent">
             <h1 class="title">
-              Club Cycliste Cycle Pop
+              CYCLEPOP
             </h1>
             <p class="subtitle">
               Calendrier des événements
@@ -26,9 +26,9 @@
       </div>
     </section>
 
-    <footer class="footer is-primary">
+    <footer class="footer section is-primary">
       <div class="container is-desktop">
-        © Copyright {{new Date().getFullYear()}} - Club Cycliste Cycle Pop
+        © Copyright {{new Date().getFullYear()}} - CYCLEPOP
       </div>
     </footer>
   </div>
