@@ -1,13 +1,13 @@
 import Evnt from './Evnt'
 import Ride from './Ride'
 class DataStore {
-  constructor (tabletop) {
-    this.tabletop = tabletop
+  constructor (backend) {
+    this.backend = backend
   }
 
-  initialize () {
-    this._buildEvents()
-    this._buildRides()
+  async initialize () {
+    await this._buildEvents()
+    await this._buildRides()
     this._buildDependencies()
   }
 
@@ -23,18 +23,14 @@ class DataStore {
     return this.rides.find(ev => ev.slug === slug)
   }
 
-  _buildEvents () {
-    this.events = this.tabletop
-      .sheets('calendrier')
-      .all()
-      .map(attrs => new Evnt({ attrs: attrs }))
+  async _buildEvents () {
+    const eventsData = await this.backend.dataFor({ sheet: 'calendrier' })
+    this.events = eventsData.map(attrs => new Evnt({ attrs: attrs }))
   }
 
-  _buildRides () {
-    this.rides = this.tabletop
-      .sheets('sorties')
-      .all()
-      .map(attrs => new Ride({ attrs: attrs }))
+  async _buildRides () {
+    const ridesData = await this.backend.dataFor({ sheet: 'sorties' })
+    this.rides = ridesData.map(attrs => new Ride({ attrs: attrs }))
   }
 
   _buildDependencies () {

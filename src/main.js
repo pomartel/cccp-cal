@@ -9,7 +9,8 @@ require('@/assets/scss/main.scss')
 moment.locale('fr-ca')
 
 window.CONFIG = {
-  spreadsheetUrl: 'https://docs.google.com/spreadsheets/d/1_zXpbThqwS0xxYcF8NouVxW3UVMA55KlVttf9rvsDZ0/',
+  spreadsheetId: '1_zXpbThqwS0xxYcF8NouVxW3UVMA55KlVttf9rvsDZ0',
+  apiKey: 'AIzaSyBKlqE-VpGkZsAQLvNVutvOwt4QHLdb6Hw',
   rideWithGpsUrl: `https://ridewithgps.com/routes/[routeId].json?apikey=338acd0e&version=2`,
   eventTypes: {
     'sortie-locale': {

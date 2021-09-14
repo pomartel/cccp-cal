@@ -1,4 +1,5 @@
 import DataStore from './DataStore'
+import GoogleSheetsBackend from './GoogleSheetsBackend'
 
 class DataStoreProxy {
   static cachedDataStore = undefined
@@ -8,23 +9,16 @@ class DataStoreProxy {
       if (DataStoreProxy.cachedDataStore) {
         resolve(DataStoreProxy.cachedDataStore)
       } else {
-        this._fetchSpreadsheet((data, tabletop) => {
-          const dataStore = new DataStore(tabletop)
-          dataStore.initialize()
+        const backend = new GoogleSheetsBackend({
+          spreadsheetId: window.CONFIG.spreadsheetId,
+          apiKey: window.CONFIG.apiKey
+        })
+        const dataStore = new DataStore(backend)
+        dataStore.initialize().then(() => {
           DataStoreProxy.cachedDataStore = dataStore
           resolve(dataStore)
         })
       }
-    })
-  }
-
-  static _fetchSpreadsheet (callback) {
-    console.log('Fetching JSON from Google Spreadsheet...')
-    window.Tabletop.init({
-      key: window.CONFIG.spreadsheetUrl,
-      callback: callback,
-      simpleSheet: false,
-      parseNumbers: true
     })
   }
 }
