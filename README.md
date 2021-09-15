@@ -2,7 +2,7 @@
 
 > Calendrier des événements CYCLEPOP
 
-[Site Web](http://calendrier.cyclepop.ca.s3-website.ca-central-1.amazonaws.com/#/) affichant le calendrier du Club et les sorties à venir.
+[Site Web](http://calendrier.cyclepop.ca/) affichant le calendrier du Club et les sorties à venir.
 
 Back-end: [Google Spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vQejSOx7I3HI-7rIDeH4VfNLhtA8ct_zmybYiN-4SquKSiGPIEad9bw397o9XKk_euS5-Ddot1G_yHA/pubhtml)
 Front-end: Site statique Vue.js
